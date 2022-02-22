@@ -5,35 +5,87 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flatfile SDK Demo</title>
+  <!-- Embed Import Script -->
   <script src="https://unpkg.com/@flatfile/sdk/dist/index.js"></script>
+  <!-- Portal Import Script -->
+  <script src="https://unpkg.com/@flatfile/adapter/build/dist/index.min.js"></script>
 </head>
 <body>
-  <button id="import">Import Data</button>
+  <div>
+    <button id="import">Import Data with Embed (very basic and no alternates feature)</button>
+  </div>
+  
+  <br />
+  
+  <div>
+    <button id="flatfile-button">Import Data with Portal (advanced with alternates)</button>
+  </div>
 
   <script>
-    const importer = flatfileImporter('<%= @token %>')
+    const embedImporter = flatfileImporter('<%= @token %>')
 
-    importer.on('init', ({ batchId }) => {
+    embedImporter.on('init', ({ batchId }) => {
       console.log(`Batch ${batchId} has been initialized.`)
     })
-    importer.on('launch', ({ batchId }) => {
+    embedImporter.on('launch', ({ batchId }) => {
       console.log(`Batch ${batchId} has been launched.`)
     })
-    importer.on('error', (error) => {
+    embedImporter.on('error', (error) => {
       console.error(error)
     })
-    importer.on('complete', async (payload) => {
-      let result = JSON.stringify(await payload.data(), null, 4)
-      console.log(result)
-      let base64URL = 'data:application/json;charset=utf-8,' + encodeURIComponent(result)
+    embedImporter.on('complete', async (payload) => {
+      let results = JSON.stringify(await payload.data(), null, 4)
+      console.log(results)
+      let base64URL = 'data:application/json;charset=utf-8,' + encodeURIComponent(results)
       let win = window.open();
       win.document.write('<iframe src="' + base64URL  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
     })
 
     document.querySelector('#import').addEventListener('click', async () => {
       alert('Import Started!')
-      await importer.launch()
+      await embedImporter.launch()
     })
+    
+    const portalImporter = new FlatfileImporter(
+      "e5fd4303-749a-41f0-90e7-552236c41bd6",
+      {
+        type: "imports",
+        fields: [
+          {
+            label: "First Name",
+            key: "first_name",
+            alternates: ["first name", "make"]
+          },
+          {
+            label: "Last Name",
+            key: "last_name",
+            alternates: ["last name", "family name", "model"]
+          },
+          {
+            label: "Email",
+            key: "email_address"
+          }
+        ],
+        managed: true
+      }
+    );
+
+    portalImporter.setCustomer({ userId: "54321", name: "John Doe", email: "john@doe.com", companyName: "Doe Industries", companyId: "12345" });
+
+    const startImport = () => {
+      portalImporter.requestDataFromUser().then(function (results) {
+        console.log(results)
+        portalImporter.displaySuccess("Thank you for your import!");
+        results = JSON.stringify(results.validData)
+        let base64URL = 'data:application/json;charset=utf-8,' + encodeURIComponent(results)
+        let win = window.open();
+        win.document.write('<iframe src="' + base64URL  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+      });
+    };
+
+    const flatfileButton = document.getElementById("flatfile-button");
+
+    flatfileButton.addEventListener("click", startImport);
   </script>
 </body>
 </html>
