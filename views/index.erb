@@ -42,7 +42,7 @@
     })
 
     document.querySelector('#import').addEventListener('click', async () => {
-      alert('Import Started!')
+      alert('Embed Import Started!')
       await embedImporter.launch()
     })
     
@@ -73,6 +73,7 @@
     portalImporter.setCustomer({ userId: "54321", name: "John Doe", email: "john@doe.com", companyName: "Doe Industries", companyId: "12345" });
 
     const startImport = () => {
+      alert('Portal Import Started!')
       portalImporter.requestDataFromUser().then(function (results) {
         console.log(results)
         portalImporter.displaySuccess("Thank you for your import!");
