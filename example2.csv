@@ -1,0 +1,6 @@
+email,first name,last name,debt amount,currency,duration,frequency,client number,reference,language,past due date,category,duration,frequency,lease,make,model,year
+debtor1@test.ca,Annie,Tremblay,1000,CAD,14,3,a5618,ert-4534,1,8/2/2019,30,10,"1,2,3",vehicle,Nissan,Versa,2017
+debtor2@test.ca,Marc,Kovalev,200,CAD,26,3,b381c,afr-4343,1,10/10/2019,60,,,vehicle,Nissan,Versa,2017
+debtor7@test.ca,Jeanne,Jansen,300,CAD,14,2,628d3,fgd-4523,2,12/21/2018,60,,,vehicle,Nissan,Versa,2017
+debtor4@test.ca,Michel,Martial,400,CAD,17,2,4e5f0,ree-453,2,,30,,,vehicle,Nissan,Versa,2017
+debtor3@test.ca,Maurice,Mercutio,500,CAD,12,1,7g779,ere-343,1,,n/a,8,"3,2",vehicle,Nissan,Versa,2017
