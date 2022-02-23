@@ -11,6 +11,14 @@ Examples:
 2. [Portal](https://flatfile.com/developers/) Import of [example2.csv](/example2.csv) results in [example2.json](/example2.json)
 3. [Portal](https://flatfile.com/developers/) Import (Bulk) of [example3.csv](/example3.csv) 20,000 rows
 
+Themes are supported by [flatfile](https://flatfile.com) (but not used in this app):
+
+https://flatfile.com/developers/javascript/themes/
+
+Internationalization (i18n) is supported by [flatfile](https://flatfile.com) too (but not used in this app):
+
+https://flatfile.com/developers/guides/custom-portal-text/
+
 ## Screenshots
 
 ### Embed Import
