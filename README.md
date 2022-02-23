@@ -7,9 +7,9 @@ It supports [Embed](https://flatfile.com/docs/getting-started/) and [Portal](htt
 [Embed](https://flatfile.com/docs/getting-started/) is more basic. [Portal](https://flatfile.com/developers/) is more advanced and supports field alternates.
 
 Examples:
-1. [Embed](https://flatfile.com/docs/getting-started/) Import of [example1.xlsx](/example1.xlsx) results in [example1.json](/example1.json)
-2. [Portal](https://flatfile.com/developers/) Import of [example2.csv](/example2.csv) results in [example2.json](/example2.json)
-3. [Portal](https://flatfile.com/developers/) Import (Bulk) of [example3.csv](/example3.csv) 20,000 rows
+1. [Embed Import](#embed-import) of [example1.xlsx](/example1.xlsx) results in [example1.json](/example1.json)
+2. [Portal Import](#portal-import) of [example2.csv](/example2.csv) results in [example2.json](/example2.json)
+3. [Portal Import (Bulk)](#portal-import-bulk) of [example3.csv](/example3.csv) 20,000 rows, which took only about 35 seconds
 
 Themes are supported by [flatfile](https://flatfile.com) (example code is included in this app, but disabled):
 
@@ -66,6 +66,8 @@ http://localhost:4242
 ### Portal Import (Bulk)
 
 This [Portal](https://flatfile.com/developers/) bulk import shows progress while importing 20,000 rows.
+
+It only took about 35 seconds to be done with importing all 20,000 rows (json shows up in console when done).
 
 ![portal bulk 1](/screenshots/flatfile_app_portal_import_bulk_screen1.png)
 ![portal bulk 2](/screenshots/flatfile_app_portal_import_bulk_screen2.png)
