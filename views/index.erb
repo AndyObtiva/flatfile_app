@@ -52,6 +52,23 @@
         type: "imports",
         disableManualInput: true,
         autoDetectHeaders: true,
+        fields: [
+          {
+            label: "First Name",
+            key: "first_name",
+            alternates: ["first name", "make"]
+          },
+          {
+            label: "Last Name",
+            key: "last_name",
+            alternates: ["last name", "family name", "model"]
+          },
+          {
+            label: "Email",
+            key: "email_address"
+          }
+        ],
+        managed: true,
         i18nOverrides: {
           en: {
             otherLocales: ["en-US", "en-CA", "en-GB"],
@@ -70,23 +87,12 @@
             }
           },
         },
-        fields: [
-          {
-            label: "First Name",
-            key: "first_name",
-            alternates: ["first name", "make"]
-          },
-          {
-            label: "Last Name",
-            key: "last_name",
-            alternates: ["last name", "family name", "model"]
-          },
-          {
-            label: "Email",
-            key: "email_address"
-          }
-        ],
-        managed: true
+//        theme: {
+//          global: {
+//            backgroundColor: "#212327",
+//            textColor: "#c2c3c3",
+//          }
+//        }
       }
     );
 
