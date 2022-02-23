@@ -9,17 +9,24 @@ It supports [Embed](https://flatfile.com/docs/getting-started/) and [Portal](htt
 Examples:
 1. [Embed Import](#embed-import) of [example1.xlsx](/example1.xlsx) results in [example1.json](/example1.json)
 2. [Portal Import](#portal-import) of [example2.csv](/example2.csv) results in [example2.json](/example2.json)
-3. [Portal Import (Bulk)](#portal-import-bulk) of [example3.csv](/example3.csv) 20,000 rows, which took only about 35 seconds
+3. [Portal Import (Bulk)](#portal-import-bulk) of [example3.csv](/example3.csv) 20,000 rows (took only 35 seconds)
+4. [Portal Import (Bulk with Webhook)](#portal-import-bulk-with-webhook) of [example4.csv](/example4.csv) 20,000 rows (took only 35 seconds and posted to '/imports' [webhook](https://flatfile.com/developers/guides/webhooks/) in batches stored in 'imports' database table). [example4.json](/example4.json) is one batch sample.
 
 Themes are supported by [flatfile](https://flatfile.com) (example code is included in this app, but disabled):
 
 https://flatfile.com/developers/javascript/themes/
 
-Internationalization (i18n) is supported by [flatfile](https://flatfile.com) too:
+Internationalization (i18n) is supported by [flatfile](https://flatfile.com) (though there is a small bug where if `i18nOverrides` were used when calling `setLanguage` manually, they end up getting merged to browser default (primary) language instead of code set language; I reported the issue to https://flatfile.com and they are going to fix it, but there are workarounds in the mean time like either not using i18nOverrides when setting language directly (e.g. 'fr' for French) or setting overrides for all properties in other languages if really needed):
 
 https://flatfile.com/developers/guides/custom-portal-text/
 
 https://support.flatfile.com/hc/en-us/articles/4407432342164-How-can-I-choose-a-language-in-the-Flatfile-importer-
+
+Webhook batch posting of 1000 imports per batch is supported (setup at `/imports` path):
+
+https://flatfile.com/developers/javascript/options/#webhookurl
+
+https://flatfile.com/developers/guides/webhooks/
 
 ## Demo
 
@@ -80,3 +87,13 @@ It only took about 35 seconds to be done with importing all 20,000 rows (json sh
 ![portal bulk 1](/screenshots/flatfile_app_portal_import_bulk_screen1.png)
 ![portal bulk 2](/screenshots/flatfile_app_portal_import_bulk_screen2.png)
 ![portal bulk 3](/screenshots/flatfile_app_portal_import_bulk_screen3.png)
+
+### Portal Import (Bulk with Webhook)
+
+This is just like the previous bulk import, but with an added webhook for storing data in batches of 1000 into database.
+
+This Heroku data clip shows the import data stored:
+
+https://data.heroku.com/dataclips/abugyooastacvohbjqnslycakpdh
+
+[example4.json](/example4.json) is one batch sample of it.
