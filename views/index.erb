@@ -96,6 +96,9 @@
       }
     );
 
+    // Manually set language locale (e.g. based on a locale query param), but in this case, if i18nOverrides is used, all attributes must be defined or else it displays English for non-overridden attributes (a bug that I reported to flatfile)
+    // portalImporter.setLanguage("fr-FR");
+    
     portalImporter.setCustomer({ userId: "54321", name: "John Doe", email: "john@doe.com", companyName: "Doe Industries", companyId: "12345" });
 
     const startImport = () => {

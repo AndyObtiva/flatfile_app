@@ -19,6 +19,8 @@ Internationalization (i18n) is supported by [flatfile](https://flatfile.com) too
 
 https://flatfile.com/developers/guides/custom-portal-text/
 
+https://support.flatfile.com/hc/en-us/articles/4407432342164-How-can-I-choose-a-language-in-the-Flatfile-importer-
+
 ## Setup
 
 Ensure ruby is installed.
