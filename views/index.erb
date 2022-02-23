@@ -52,6 +52,24 @@
         type: "imports",
         disableManualInput: true,
         autoDetectHeaders: true,
+        i18nOverrides: {
+          en: {
+            otherLocales: ["en-US", "en-CA", "en-GB"],
+            overrides: {
+              dropzone: {
+                button: "This is where you upload Lexop recipients."
+              }
+            }
+          },
+          fr: {
+            otherLocales: ["fr-FR"],
+            overrides: {
+              dropzone: {
+                button: "Téléchargez Lexop destinataires."
+              }
+            }
+          },
+        },
         fields: [
           {
             label: "First Name",

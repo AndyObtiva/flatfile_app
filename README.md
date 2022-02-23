@@ -15,7 +15,7 @@ Themes are supported by [flatfile](https://flatfile.com) (but not used in this a
 
 https://flatfile.com/developers/javascript/themes/
 
-Internationalization (i18n) is supported by [flatfile](https://flatfile.com) too (but not used in this app):
+Internationalization (i18n) is supported by [flatfile](https://flatfile.com) too:
 
 https://flatfile.com/developers/guides/custom-portal-text/
 
