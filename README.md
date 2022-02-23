@@ -21,6 +21,12 @@ https://flatfile.com/developers/guides/custom-portal-text/
 
 https://support.flatfile.com/hc/en-us/articles/4407432342164-How-can-I-choose-a-language-in-the-Flatfile-importer-
 
+## Demo
+
+A demo is hosted on heroku:
+
+https://flatfile-app.herokuapp.com/
+
 ## Setup
 
 Ensure ruby is installed.
