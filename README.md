@@ -19,6 +19,28 @@ Internationalization (i18n) is supported by [flatfile](https://flatfile.com) too
 
 https://flatfile.com/developers/guides/custom-portal-text/
 
+## Setup
+
+Ensure ruby is installed.
+
+Go into project directory.
+
+Run:
+
+```
+bundle
+```
+
+Finally, run:
+
+```
+ruby main.rb
+```
+
+And, visit:
+
+http://localhost:4242
+
 ## Screenshots
 
 ### Embed Import
