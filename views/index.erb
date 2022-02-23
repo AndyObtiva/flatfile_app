@@ -22,6 +22,7 @@
   </div>
 
   <script>
+    // Embed Approach (very basic and does not support alternates)
     const embedImporter = flatfileImporter('<%= @token %>')
 
     embedImporter.on('init', ({ batchId }) => {
@@ -46,10 +47,13 @@
       await embedImporter.launch()
     })
     
+    // Portal Approach (advanced and supports alternates and webhooks)
+    
     const portalImporter = new FlatfileImporter(
       "e5fd4303-749a-41f0-90e7-552236c41bd6",
       {
         type: "imports",
+        webhookUrl: "https://flatfile-app.herokuapp.com/imports",
         disableManualInput: true,
         autoDetectHeaders: true,
         fields: [
